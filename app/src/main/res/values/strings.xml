@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MovieSearchEngine</string>
+    <string name="search_activity_title">SEARCH</string>
+    <string name="detail_activity_title">DETAIL</string>
+    <string name="favorites_activity_title">FAVORITES</string>
+    <string name="favorites_menu_title">Favorites</string>
+    <string name="hint_text">Search...</string>
+    <string name="search_button_text">Find</string>
+    <string name="favorites_toggle_buttonOn">Remove</string>
+    <string name="favorites_toggle_buttonOff">Add</string>
+    <string name="check_box_text">is in favorites</string>
+    <string name="content_description_poster">Poster</string>
+</resources>
