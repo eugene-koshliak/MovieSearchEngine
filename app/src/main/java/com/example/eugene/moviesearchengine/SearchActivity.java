@@ -2,6 +2,8 @@ package com.example.eugene.moviesearchengine;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -150,6 +152,7 @@ public class SearchActivity extends Activity {
     about the movies from the input moviesJSON string.
      */
     private Movies extractDataFromJson(String moviesJSON) {
+        Bitmap poster;
 
         if(TextUtils.isEmpty(moviesJSON)) {
             return null;
@@ -161,7 +164,10 @@ public class SearchActivity extends Activity {
 
             for(int i=0; i<jsonArraySearch.length(); i++) {
                 JSONObject jsonObject = jsonArraySearch.getJSONObject(i);
-                String poster = jsonObject.getString("Poster");
+
+                String posterUrl = jsonObject.getString("Poster");
+                poster = imageDownload(posterUrl);
+
                 String title = jsonObject.getString("Title");
                 String type = jsonObject.getString("Type");
                 String year = jsonObject.getString("Year");
@@ -174,6 +180,19 @@ public class SearchActivity extends Activity {
             Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);
         }
         return null;
+    }
+
+    private Bitmap imageDownload(String url) {
+
+        Bitmap mIcon11 = null;
+
+        try {
+            InputStream in = new java.net.URL(url).openStream();
+            mIcon11 = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return mIcon11;
     }
 
     private class MoviesAsyncTask extends AsyncTask<URL, Void, Void> {

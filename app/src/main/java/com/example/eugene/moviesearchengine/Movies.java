@@ -1,5 +1,7 @@
 package com.example.eugene.moviesearchengine;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by eugene on 13.09.16.
  */
@@ -8,7 +10,7 @@ public class Movies {
 
     private String title;
     private String year;
-    private String poster;
+    private Bitmap poster;
     private String director;
     private String writer;
     private String[] actors;
@@ -17,14 +19,14 @@ public class Movies {
     private String type;
     private String imdbVotes;
 
-    public Movies(String poster, String title, String type, String year) {
+    public Movies(Bitmap poster, String title, String type, String year) {
         this.poster = poster;
         this.title = title;
         this.type = type;
         this.year = year;
     }
 
-    public Movies(String title, String year, String poster, String director, String writer,
+    public Movies(String title, String year, Bitmap poster, String director, String writer,
                   String[] actors, String country, String imdbRating, String type, String imdbVotes) {
         this.title = title;
         this.year = year;
@@ -46,7 +48,7 @@ public class Movies {
         return year;
     }
 
-    public String getPoster() {
+    public Bitmap getPoster() {
         return poster;
     }
 

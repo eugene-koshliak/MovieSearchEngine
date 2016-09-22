@@ -2,15 +2,12 @@ package com.example.eugene.moviesearchengine;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -27,16 +24,16 @@ public class MoviesAdapter extends ArrayAdapter<Movies> {
 
         View listItemView = convertView;
 
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.movies_list_item, parent, false);
         }
 
         Movies currentMovie = getItem(position);
 
-        String moviePosterUrl = currentMovie.getPoster();
         ImageView moviePosterView = (ImageView) listItemView.findViewById(R.id.movie_poster);
-        DownloadImageTask downloadImageTask = new DownloadImageTask(moviePosterView);
-        downloadImageTask.execute(moviePosterUrl);
+        Bitmap moviePoster = currentMovie.getPoster();
+        moviePosterView.setImageBitmap(moviePoster);
+
 
         TextView movieTitleView = (TextView) listItemView.findViewById(R.id.movie_title);
         String movieTitle = currentMovie.getTitle();
@@ -51,30 +48,5 @@ public class MoviesAdapter extends ArrayAdapter<Movies> {
         movieYearView.setText(movieYear);
 
         return listItemView;
-    }
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
     }
 }
