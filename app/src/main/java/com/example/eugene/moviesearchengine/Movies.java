@@ -13,7 +13,7 @@ public class Movies {
     private Bitmap poster;
     private String director;
     private String writer;
-    private String[] actors;
+    private String actors;
     private String country;
     private String imdbRating;
     private String type;
@@ -27,7 +27,7 @@ public class Movies {
     }
 
     public Movies(String title, String year, Bitmap poster, String director, String writer,
-                  String[] actors, String country, String imdbRating, String type, String imdbVotes) {
+                  String actors, String country, String imdbRating, String type, String imdbVotes) {
         this.title = title;
         this.year = year;
         this.poster = poster;
@@ -60,7 +60,7 @@ public class Movies {
         return writer;
     }
 
-    public String[] getActors() {
+    public String getActors() {
         return actors;
     }
 

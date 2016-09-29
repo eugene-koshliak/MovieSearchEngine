@@ -13,7 +13,6 @@
         android:layout_weight="2"
         android:gravity="center"
         android:layout_margin="5dp"
-        tools:src="@drawable/no_poster"
         />
 
     <TextView
@@ -24,8 +23,7 @@
         android:gravity="center_horizontal"
         android:textSize="12sp"
         android:fontFamily="sans-serif"
-        android:layout_margin="5dp"
-        tools:text="Breaking Bad"/>
+        android:layout_margin="5dp" />
 
     <TextView
         android:id="@+id/movie_type"
@@ -35,8 +33,7 @@
         android:gravity="center_horizontal"
         android:textSize="12sp"
         android:fontFamily="sans-serif"
-        android:layout_margin="5dp"
-        tools:text="serial"/>
+        android:layout_margin="5dp" />
 
     <TextView
         android:id="@+id/movie_year"
@@ -46,8 +43,7 @@
         android:gravity="center_horizontal"
         android:textSize="12sp"
         android:fontFamily="sans-serif"
-        android:layout_margin="5dp"
-        tools:text="2008-2010" />
+        android:layout_margin="5dp" />
 
     <ToggleButton
         android:id="@+id/movie_toggle_button"
@@ -57,6 +53,8 @@
         android:gravity="center"
         android:textSize="10sp"
         android:layout_margin="5dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:textOn="@string/favorites_toggle_buttonOn"
         android:textOff="@string/favorites_toggle_buttonOff"/>
 

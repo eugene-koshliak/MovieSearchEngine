@@ -1,13 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    app:columnCount="3"
     tools:context="com.example.eugene.moviesearchengine.DetailActivity">
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/detail_poster"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_gravity="top"
+        app:layout_columnWeight="3"
+        app:layout_rowSpan="11"
+
+        tools:src="@drawable/no_poster"/>
+    <TextView
+        android:id="@+id/detail_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        />
+    <TextView
+        android:id="@+id/detail_title_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        tools:text="X-Men: First Class"/>
+
+    <TextView
+        android:id="@+id/detail_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        />
+    <TextView
+        android:id="@+id/detail_year_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        tools:text="2007"/>
+
+    <TextView
+        android:id="@+id/detail_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        />
+    <TextView
+        android:id="@+id/detail_type_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        tools:text="movie"/>
+
+    <TextView
+        android:id="@+id/detail_director"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1" />
+    <TextView
+        android:id="@+id/detail_director_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        tools:text="Matthew Vaughn"/>
+
+
+    <TextView
+        android:id="@+id/detail_country"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1" />
+    <TextView
+        android:id="@+id/detail_country_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        tools:text="USA, UK"/>
+
+    <TextView
+        android:id="@+id/detail_imdbRating"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1" />
+    <TextView
+        android:id="@+id/detail_imdbRating_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        tools:text="7.8"/>
+
+    <TextView
+        android:id="@+id/detail_imdbVotes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1" />
+    <TextView
+        android:id="@+id/detail_imdbVotes_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        tools:text="522,047"/>
+
+    <TextView
+        android:id="@+id/detail_writer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1" />
+    <TextView
+        android:id="@+id/detail_writer_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnSpan="2"
+        app:layout_columnWeight="1"
+        tools:text="Ashley Miller (screenplay), Zack Stentz (screenplay), Jane Goldman (screenplay), Matthew Vaughn (screenplay), Sheldon Turner (story), Bryan Singer (story)"/>
+
+    <TextView
+        android:id="@+id/detail_actors"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"/>
+    <TextView
+        android:id="@+id/detail_actors_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
+        app:layout_columnSpan="2"
+        tools:text="James McAvoy, Laurence Belcher, Michael Fassbender, Bill Milner"/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/detail_plot"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_columnWeight="1"-->
+        <!--android:text="@string/detail_plot" />-->
+    <!--<TextView-->
+        <!--android:id="@+id/detail_plot_content"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_columnWeight="1"-->
+        <!--app:layout_columnSpan="2"-->
+        <!--tools:text="In 1962, the United States government enlists the help of Mutants with superhuman abilities to stop a malicious dictator who is determined to start World War III."/>-->
+
+</android.support.v7.widget.GridLayout>

@@ -12,9 +12,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,10 +36,10 @@ public class SearchActivity extends Activity {
 
     // Tag for the log messages
     public static final String LOG_TAG = SearchActivity.class.getSimpleName();
-    private static String omdbRequestUrl = "http://www.omdbapi.com/?s=";
+    private static String searchOmdbRequestUrl = "http://www.omdbapi.com/?s=";
     private static String movieTitle;
     private static ArrayList<Movies> movies;
-    private static ListView moviesListView;
+    private ListView moviesListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,25 +51,30 @@ public class SearchActivity extends Activity {
             public void onClick(View view) {
 
                 EditText searchText = (EditText) findViewById(R.id.search_text);
-                String editText = searchText.getText().toString();
-                movieTitle = editText.replace(" ", "+");
+                movieTitle = searchText.getText().toString().replace(" ", "+");
                 moviesListView = (ListView) findViewById(R.id.movies_list);
 
                 MoviesAsyncTask task = new MoviesAsyncTask();
                 task.execute();
 
+                moviesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
+                                            long id) {
+                        TextView selectedItemTitleView = (TextView) itemClicked.findViewById(R.id.movie_title);
+                        String selectedItemTitle = selectedItemTitleView.getText().toString();
+
+                        Intent intent = new Intent(SearchActivity.this, DetailActivity.class);
+                        intent.putExtra(DetailActivity.MOVIE_TITLE, selectedItemTitle);
+                        intent.setType("text/plain");
+                        startActivity(intent);
+                    }
+                });
+
             }
         });
-    }
-    protected URL createUrl() {
-        URL url;
-        try {
-            url = new URL(omdbRequestUrl + movieTitle);
-        } catch (MalformedURLException exception) {
-            Log.e(LOG_TAG, "Error with creating URL", exception);
-            return null;
-        }
-        return url;
+
+
     }
 
     @Override
@@ -87,6 +94,17 @@ public class SearchActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private URL createUrl() {
+        URL url;
+        try {
+            url = new URL(searchOmdbRequestUrl + movieTitle);
+        } catch (MalformedURLException exception) {
+            Log.e(LOG_TAG, "Error with creating URL", exception);
+            return null;
+        }
+        return url;
     }
 
     // Make an HTTP request to the given URL and return a String as the response.
