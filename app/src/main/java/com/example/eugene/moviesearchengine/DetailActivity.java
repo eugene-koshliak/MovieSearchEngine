@@ -151,18 +151,18 @@ public class DetailActivity extends Activity {
         try {
             JSONObject jsonRootObject = new JSONObject(moviesJSON);
 
-            String imageUrl = jsonRootObject.getString("poster");
+            String imageUrl = jsonRootObject.getString("Poster");
             poster = imageDownload(imageUrl);
 
-            String title = jsonRootObject.getString("title");
-            String year = jsonRootObject.getString("year");
-            String type = jsonRootObject.getString("type");
-            String director = jsonRootObject.getString("director");
-            String country = jsonRootObject.getString("country");
+            String title = jsonRootObject.getString("Title");
+            String year = jsonRootObject.getString("Year");
+            String type = jsonRootObject.getString("Type");
+            String director = jsonRootObject.getString("Director");
+            String country = jsonRootObject.getString("Country");
             String imdbRating = jsonRootObject.getString("imdbRating");
             String imdbVotes = jsonRootObject.getString("imdbVotes");
-            String writer = jsonRootObject.getString("writer");
-            String actors = jsonRootObject.getString("actors");
+            String writer = jsonRootObject.getString("Writer");
+            String actors = jsonRootObject.getString("Actors");
 
             return new Movies(title, year, poster, director, writer, actors, country, imdbRating, type, imdbVotes);
         } catch (JSONException e) {
@@ -210,39 +210,39 @@ public class DetailActivity extends Activity {
             ImageView posterView = (ImageView) findViewById(R.id.detail_poster);
             posterView.setImageBitmap(movie.getPoster());
 
-            TextView titleView = (TextView) findViewById(R.id.detail_title_content);
+            TextView titleView = (TextView) findViewById(R.id.detail_title);
             String movieTitle = "Title: " + movie.getTitle();
             titleView.setText(movieTitle);
 
-            TextView yearView = (TextView) findViewById(R.id.detail_year_content);
+            TextView yearView = (TextView) findViewById(R.id.detail_year);
             String movieYear = "Year: " + movie.getYear();
             yearView.setText(movieYear);
 
-            TextView typeView = (TextView) findViewById(R.id.detail_type_content);
+            TextView typeView = (TextView) findViewById(R.id.detail_type);
             String movieType = "Type: " + movie.getType();
             typeView.setText(movieType);
 
-            TextView directorView = (TextView) findViewById(R.id.detail_director_content);
+            TextView directorView = (TextView) findViewById(R.id.detail_director);
             String movieDirector = "Director: " + movie.getDirector();
             directorView.setText(movieDirector);
 
-            TextView countryView = (TextView) findViewById(R.id.detail_country_content);
+            TextView countryView = (TextView) findViewById(R.id.detail_country);
             String movieCountry = "Country: " + movie.getCountry();
             countryView.setText(movieCountry);
 
-            TextView imdbRatingView = (TextView) findViewById(R.id.detail_imdbRating_content);
+            TextView imdbRatingView = (TextView) findViewById(R.id.detail_imdbRating);
             String movieImdbRating = "IMDB Rating: " + movie.getImdbRating();
             imdbRatingView.setText(movieImdbRating);
 
-            TextView imdbVotesView = (TextView) findViewById(R.id.detail_imdbVotes_content);
+            TextView imdbVotesView = (TextView) findViewById(R.id.detail_imdbVotes);
             String movieImdbVotes = "IMDB Votes: " + movie.getImdbVotes();
             imdbVotesView.setText(movieImdbVotes);
 
-            TextView writerView = (TextView) findViewById(R.id.detail_writer_content);
+            TextView writerView = (TextView) findViewById(R.id.detail_writer);
             String movieWriter = "Writer: " + movie.getWriter();
             writerView.setText(movieWriter);
 
-            TextView actorsView = (TextView) findViewById(R.id.detail_actors_content);
+            TextView actorsView = (TextView) findViewById(R.id.detail_actors);
             String movieActors = "Actors: " + movie.getActors();
             actorsView.setText(movieActors);
         }

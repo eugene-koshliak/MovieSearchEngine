@@ -10,4 +10,5 @@
     <string name="favorites_toggle_buttonOff">Add</string>
     <string name="check_box_text">is in favorites</string>
     <string name="content_description_poster">Poster</string>
+    <string name="add_to_favorites_button">Add to favorites</string>
 </resources>
